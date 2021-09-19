@@ -4,7 +4,7 @@
   "description": "Full Stack Social Media Web App that allows users to create posts",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,13 @@
   "homepage": "https://github.com/kevinlichang/social-poster#readme",
   "dependencies": {
     "apollo-server": "^3.3.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^10.0.0",
     "graphql": "^15.5.3",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
   }
 }
