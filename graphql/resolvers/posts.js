@@ -7,7 +7,7 @@ postResolvers = {
   Query: {
     async getAllPosts() {
       try {
-        const posts = await Post.find().sort({createdAt: -1});
+        const posts = await Post.find().sort({ createdAt: -1 });
         return posts;
       } catch (err) {
         throw new Error(err);
@@ -57,10 +57,31 @@ postResolvers = {
           return 'Post removed';
         } else {
           throw new AuthenticationError('Unable to delete');
-        } 
+        }
       } catch (err) {
         throw new Error(err);
       }
+    },
+    like: async (_, { postId }, context) => {
+      const user = authorizeUser(context);
+
+      const post = await Post.findById(postId);
+      if (post) {
+        const index = post.likes.findIndex((like) => like.username === user.username);
+
+        if (index >= 0 && post.likes[index].username === user.username) {
+          // If user already liked the post, then unlike it
+          post.likes.splice(index, 1);
+        } else {
+          post.likes.push({
+            username: user.username,
+            createdAt: new Date().toISOString()
+          });
+        }
+
+        await post.save();
+        return post;
+      } else throw new UserInputError('Post not found');
     }
   }
 }

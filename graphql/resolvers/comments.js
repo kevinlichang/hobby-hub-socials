@@ -43,7 +43,7 @@ commentResolvers = {
         if (commentToDelete.username === user.username) {
           await commentToDelete.delete();
           
-          const index = post.comments.findIndex((c) => c.id === commentId);
+          const index = post.comments.findIndex((comment) => comment.id === commentId);
           if (post.comments[index].username === user.username) {
             post.comments.splice(index, 1);
             await post.save();

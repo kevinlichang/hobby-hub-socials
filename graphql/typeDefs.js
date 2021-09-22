@@ -46,7 +46,9 @@ gqlSchema = gql`
     deleteComment(postId: ID!, commentId: ID!): Post!
     like(postId: ID!): Post!
   }
-
+  type Follow {
+    newPost: Post!
+  }
 `;
 
 module.exports = gqlSchema;
