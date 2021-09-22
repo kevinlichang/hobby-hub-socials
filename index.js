@@ -6,11 +6,10 @@ require('dotenv').config();
 const typeDefs = require('./graphql/typeDefs');
 const resolvers = require('./graphql/resolvers');
 
-
-
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
+  context: ({ req }) => ({ req })
 });
 
 mongoose.connect(process.env.DB_URI,

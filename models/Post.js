@@ -1,5 +1,7 @@
 const { model, Schema } = require('mongoose');
 
+const Comment = require('./Comment');
+
 const postSchema = new Schema({
   body: String,
   username: String,

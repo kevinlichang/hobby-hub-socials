@@ -52,9 +52,7 @@ module.exports = {
       _,
       {
         registerInput: { username, email, password, confirmPassword }
-      },
-      context,
-      info
+      }
     ) {
       // Validate user data
       const { valid, errors } = validateRegister(

@@ -1,16 +1,29 @@
 const { gql } = require('apollo-server');
 
-module.exports = gql`
+gqlSchema = gql`
   type Post{
     id: ID!
     body: String!
     createdAt: String!
     username: String!
+    comments: [Comment]!
+    likes: [Like]!
   }
   type User{
     id: ID!
     email: String!
     token: String!
+    username: String!
+    createdAt: String!
+  }
+  type Comment{
+    id: ID!
+    username: String!
+    body: String!
+    createdAt: String!
+  }
+  type Like{
+    id: ID!
     username: String!
     createdAt: String!
   }
@@ -21,11 +34,19 @@ module.exports = gql`
     email: String!
   }
   type Query{
-    getPosts: [Post]
+    getAllPosts: [Post]
+    getPost(postId: ID!): Post
   }
   type Mutation{
     register(registerInput: RegisterInput): User!
     login(username: String!, password: String!): User!
+    createPost(body: String!): Post!
+    createComment(postId: String!, body: String!): Comment!
+    deletePost(postId: ID!): String!
+    deleteComment(postId: ID!, commentId: ID!): Post!
+    like(postId: ID!): Post!
   }
 
 `;
+
+module.exports = gqlSchema;
