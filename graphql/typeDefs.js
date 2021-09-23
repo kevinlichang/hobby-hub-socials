@@ -8,6 +8,8 @@ gqlSchema = gql`
     username: String!
     comments: [Comment]!
     likes: [Like]!
+    likeCount: Int!
+    commentCount: Int!
   }
   type User{
     id: ID!
@@ -45,9 +47,6 @@ gqlSchema = gql`
     deletePost(postId: ID!): String!
     deleteComment(postId: ID!, commentId: ID!): Post!
     like(postId: ID!): Post!
-  }
-  type Follow {
-    newPost: Post!
   }
 `;
 
