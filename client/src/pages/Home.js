@@ -14,7 +14,7 @@ function Home() {
 
   return (
     <Grid>
-      <Grid.Row>
+      <Grid.Row className="page-title">
         <h1>New Posts</h1>
       </Grid.Row>
 
@@ -26,7 +26,7 @@ function Home() {
           </Segment>
         ) : (
           posts && posts.map(post => (
-            <Grid.Row key={post.id}>
+            <Grid.Row key={post.id} >
               <PostItem post={post} />
             </Grid.Row>
           ))
