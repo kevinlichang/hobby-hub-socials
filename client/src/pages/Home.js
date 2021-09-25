@@ -17,21 +17,28 @@ function Home() {
       <Grid.Row className="page-title">
         <h1>New Posts</h1>
       </Grid.Row>
+      <Grid.Row columns={2}>
+        <Grid.Column width={5}>
 
-        {loading ? (
-          <Segment>
-            <Dimmer active>
-              <Loader />
-            </Dimmer>
-          </Segment>
-        ) : (
-          posts && posts.map(post => (
-            <Grid.Row key={post.id} >
-              <PostItem post={post} />
-            </Grid.Row>
-          ))
-        )}
-
+        </Grid.Column>
+        <Grid.Column width={9}>
+          <Grid divided={'vertically'}>
+            {loading ? (
+              <Segment>
+                <Dimmer active>
+                  <Loader />
+                </Dimmer>
+              </Segment>
+            ) : (
+              posts && posts.map(post => (
+                <Grid.Row key={post.id}>
+                  <PostItem post={post} />
+                </Grid.Row>
+              ))
+            )}
+          </Grid>
+        </Grid.Column>
+      </Grid.Row>
     </Grid>
   )
 };

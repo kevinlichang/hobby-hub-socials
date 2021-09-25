@@ -4,3 +4,12 @@
   font-size: 2rem;
   margin-top: 10 px;
 }
+
+.form-div{
+  width: 400px;
+  margin: auto;
+}
+
+.block{
+  display: block;
+}

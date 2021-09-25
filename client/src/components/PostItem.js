@@ -19,7 +19,7 @@ let PostItem = ({ post: { id, username, body, createdAt, likeCount, commentCount
 
         <Item.Content>
           <Item.Header as='a'>{username}</Item.Header>
-          <Item.Meta as={Link} to={`/posts/${id}`}>{moment(createdAt).fromNow(true)}</Item.Meta>
+          <Item.Meta as={Link} to={`/posts/${id}`} className="block">{moment(createdAt).fromNow(true)}</Item.Meta>
           <Item.Description>
             {body}
           </Item.Description>
