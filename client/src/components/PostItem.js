@@ -3,7 +3,7 @@ import { Item, Button, Icon, Label } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 
-let PostItem = ({ post: { id, username, body, createdAt, likeCount, commentCount, likes } }) => {
+function PostItem ({ post: { id, username, body, createdAt, likeCount, commentCount, likes } }) {
   function likeClick() {
     console.log('Like clicked');
   }

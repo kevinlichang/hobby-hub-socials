@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import { useQuery } from '@apollo/react-hooks'
-import { Grid, Segment, Dimmer, Loader } from 'semantic-ui-react'
+import { useQuery } from '@apollo/client'
+import { Grid, Segment, Dimmer, Loader, Transition } from 'semantic-ui-react'
 
 import PostItem from '../components/PostItem'
 import PostForm from '../components/PostForm'
@@ -9,11 +9,11 @@ import { AuthContext } from '../context/authenticate'
 
 function Home() {
   const { user } = useContext(AuthContext);
-  const { loading, error, data } = useQuery(FETCH_POSTS_QUERY);
+  const { loading, data: posts } = useQuery(FETCH_POSTS_QUERY);
 
-  if (loading) return 'Loading...';
-  if (error) return `Error! ${error.message}`;
-  const posts = data.getAllPosts
+  // if (loading) return 'Loading...';
+  // if (error) return `Error! ${error.message}`;
+  // const posts = data.getAllPosts
 
   return (
     <Grid>
@@ -25,9 +25,9 @@ function Home() {
           <Grid>
             <Grid.Row>
               {user && (
-                <Grid.Column>
+                
                   <PostForm />
-                </Grid.Column>
+
               )}
             </Grid.Row>
           </Grid>
@@ -36,17 +36,21 @@ function Home() {
         <Grid.Column width={9}>
           <Grid divided={'vertically'}>
             {loading ? (
-              <Segment>
-                <Dimmer active>
-                  <Loader />
-                </Dimmer>
-              </Segment>
+              <Grid.Row centered>
+                <Segment>
+                  <Dimmer active inverted>
+                    <Loader inverted size="tiny"/>
+                  </Dimmer>
+                </Segment>
+              </Grid.Row>
             ) : (
-              posts && posts.map(post => (
-                <Grid.Row key={post.id}>
-                  <PostItem post={post} />
-                </Grid.Row>
-              ))
+              <Transition.Group>
+                {posts.getAllPosts && posts.getAllPosts.map(post => (
+                  <Grid.Row key={post.id}>
+                    <PostItem post={post} />
+                  </Grid.Row>
+                ))}
+              </Transition.Group>
             )}
           </Grid>
         </Grid.Column>

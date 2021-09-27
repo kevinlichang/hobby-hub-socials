@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Form, Button } from 'semantic-ui-react'
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/client';
 
 import { REGISTER_USER } from '../util/graphql';
 import { AuthContext } from '../context/authenticate';
