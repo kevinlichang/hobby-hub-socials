@@ -36,10 +36,10 @@ function Home() {
         <Grid.Column width={9}>
           <Grid divided={'vertically'}>
             {loading ? (
-              <Grid.Row centered>
-                <Segment>
+              <Grid.Row centered >
+                <Segment basic>
                   <Dimmer active inverted>
-                    <Loader inverted size="tiny"/>
+                    <Loader inverted/>
                   </Dimmer>
                 </Segment>
               </Grid.Row>

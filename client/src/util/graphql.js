@@ -23,6 +23,28 @@ export const FETCH_POSTS_QUERY = gql`
   }
 `;
 
+export const FETCH_SINGLE_POST = gql`
+  query($postId: ID!) {
+    getPost(postId: $postId) {
+      id
+      body
+      createdAt
+      username
+      likeCount
+      likes {
+        username
+      }
+      commentCount
+      comments {
+        id
+        username
+        createdAt
+        body
+      }
+    }
+  }
+`;
+
 export const REGISTER_USER = gql`
   mutation register(
     $username: String!
