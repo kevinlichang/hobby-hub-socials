@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { useQuery } from '@apollo/client'
-import { Grid, Segment, Dimmer, Loader, Transition } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
+import { Grid, Segment, Dimmer, Loader, Transition, Message, Button } from 'semantic-ui-react'
 
 import PostItem from '../components/PostItem'
 import PostForm from '../components/PostForm'
@@ -16,30 +17,38 @@ function Home() {
   // const posts = data.getAllPosts
 
   return (
-    <Grid>
+    <Grid relaxed>
       <Grid.Row className="page-title">
         <h1>New Posts</h1>
       </Grid.Row>
-      <Grid.Row columns={2}>
+      <Grid.Row centered>
         <Grid.Column width={5}>
-          <Grid>
-            <Grid.Row>
-              {user && (
-                <Grid.Column>
-                  <PostForm />
-                </Grid.Column>
-              )}
-            </Grid.Row>
-          </Grid>
+          {user ? (
+            <PostForm />
+          ) : (
+            <Message info size='big'>
+              <Message.Header>Create your own post!</Message.Header>
+              <p>
+                Just log in or register
+              </p>
+              <Button as={Link} to="/login" >
+                Login
+              </Button>
+              <Button as={Link} to="/register">
+                Register
+              </Button>
+            </Message>
+          )}
+
 
         </Grid.Column>
-        <Grid.Column width={9}>
+        <Grid.Column width={11}>
           <Grid divided={'vertically'}>
             {loading ? (
               <Grid.Row centered >
                 <Segment basic>
                   <Dimmer active inverted>
-                    <Loader inverted/>
+                    <Loader inverted />
                   </Dimmer>
                 </Segment>
               </Grid.Row>
