@@ -25,9 +25,9 @@ function Home() {
           <Grid>
             <Grid.Row>
               {user && (
-                
+                <Grid.Column>
                   <PostForm />
-
+                </Grid.Column>
               )}
             </Grid.Row>
           </Grid>

@@ -13,3 +13,7 @@
 .block{
   display: block;
 }
+
+.ui.green.button:focus, .ui.green.buttons .button:focus{
+  background-color: #21ba45;
+}

@@ -86,3 +86,17 @@ export const CREATE_POST_MUTATION = gql`
     }
   }
 `;
+
+// For the like button
+export const LIKE_MUTATION = gql`
+  mutation like($postId: ID!) {
+    like(postId: $postId) {
+      id
+      likes {
+        id
+        username
+      }
+      likeCount
+    }
+  }
+`;

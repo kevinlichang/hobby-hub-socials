@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Item, Button, Icon, Label } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 
+import { AuthContext } from '../context/authenticate';
+import DeleteButton from './DeleteButton';
+import LikeButton from './LikeButton';
+
 function PostItem ({ post: { id, username, body, createdAt, likeCount, commentCount, likes } }) {
-  function likeClick() {
-    console.log('Like clicked');
-  }
+  const { user } = useContext(AuthContext);
   
   function commentClick() {
     console.log('Comment clicked');
@@ -24,25 +26,16 @@ function PostItem ({ post: { id, username, body, createdAt, likeCount, commentCo
             {body}
           </Item.Description>
           <Item.Extra>
-            <Button as='div' labelPosition='right' onClick={likeClick}>
-              <Button color='green' basic>
-                <Icon name='thumbs up' />
-                Like
-              </Button>
-              <Label as='a' basic color='green' pointing='left'>
-                {likeCount}
-              </Label>
-            </Button>
-            <Button as='div' labelPosition='right' onClick={commentClick}>
+            <LikeButton user={user} post={{ id, likes, likeCount }} />
+            <Button  labelPosition='right' as={Link} to={`/posts/id`} onClick={commentClick}>
               <Button color='blue' basic>
                 <Icon name='comments' />
-                {commentCount}
               </Button>
-              <Label as='a' basic color='blue' pointing='left'>
-                {likeCount}
+              <Label basic color='blue' pointing='left'>
+                {commentCount}
               </Label>
             </Button>
-
+            {user && user.username === username && <DeleteButton postId={id} />}
           </Item.Extra>
         </Item.Content>
       </Item>
