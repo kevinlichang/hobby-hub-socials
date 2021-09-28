@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { useQuery } from '@apollo/client'
 import { Link } from 'react-router-dom'
-import { Grid, Segment, Dimmer, Loader, Transition, Message, Button } from 'semantic-ui-react'
+import { Grid, Segment, Loader, Transition, Message, Button } from 'semantic-ui-react'
 
 import PostItem from '../components/PostItem'
 import PostForm from '../components/PostForm'
@@ -47,9 +47,9 @@ function Home() {
             {loading ? (
               <Grid.Row centered >
                 <Segment basic>
-                  <Dimmer active inverted>
-                    <Loader inverted />
-                  </Dimmer>
+                  
+                  <Loader active />
+                  
                 </Segment>
               </Grid.Row>
             ) : (
