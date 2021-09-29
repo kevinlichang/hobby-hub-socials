@@ -5,12 +5,12 @@ import { Grid, Segment, Loader, Transition, Message, Button } from 'semantic-ui-
 
 import PostItem from '../components/PostItem'
 import PostForm from '../components/PostForm'
-import { FETCH_POSTS_QUERY } from '../util/graphql'
+import { FETCH_ALL_POSTS_QUERY } from '../util/graphql'
 import { AuthContext } from '../context/authenticate'
 
 function Home() {
   const { user } = useContext(AuthContext);
-  const { loading, data: posts } = useQuery(FETCH_POSTS_QUERY);
+  const { loading, data: posts } = useQuery(FETCH_ALL_POSTS_QUERY);
 
   // if (loading) return 'Loading...';
   // if (error) return `Error! ${error.message}`;

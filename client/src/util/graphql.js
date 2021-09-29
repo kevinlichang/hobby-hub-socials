@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
 // For HOME
-export const FETCH_POSTS_QUERY = gql`
+export const FETCH_ALL_POSTS_QUERY = gql`
   {
     getAllPosts {
       id

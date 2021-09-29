@@ -14,6 +14,13 @@
   display: block;
 }
 
+.post-body{
+  color: black;
+  font-size:medium;
+  padding-top: .3em;
+  padding-bottom: .5em;
+}
+
 .ui.green.button:focus, .ui.green.buttons .button:focus{
   background-color: #21ba45;
 }
