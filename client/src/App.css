@@ -24,3 +24,7 @@
 .ui.green.button:focus, .ui.green.buttons .button:focus{
   background-color: #21ba45;
 }
+
+.detail-page-message{
+  text-align: center;
+}

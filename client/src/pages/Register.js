@@ -23,7 +23,7 @@ function Register(props) {
     update(_, result) {
       context.login(result.data.register);
       // setTimeout(() => props.history.push('/'), 2000);
-      props.history.push('/');
+      props.history.goBack();
     },
     onError(err) {
       console.log(err.graphQLErrors[0].extensions.errors);

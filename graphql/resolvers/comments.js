@@ -27,8 +27,8 @@ commentResolvers = {
   
         const savedComment = await newComment.save();
         post.comments.push(savedComment);
-        await post.save();
-        return savedComment;
+        const updatedPost = await post.save();
+        return updatedPost;
       } else {
         throw new UserInputError('Post is not found');
       }

@@ -3,9 +3,10 @@ import { Item, Button, Icon, Label, Container } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 
-import { AuthContext } from '../context/authenticate';
-import DeleteButton from './DeleteButton';
-import LikeButton from './LikeButton';
+import { AuthContext } from '../context/authenticate'
+import DeleteButton from './DeleteButton'
+import LikeButton from './LikeButton'
+import avatar from '../images/avatar.jpg'
 
 function PostItem({ post: { id, username, body, createdAt, likeCount, commentCount, likes } }) {
   const { user } = useContext(AuthContext);
@@ -17,7 +18,7 @@ function PostItem({ post: { id, username, body, createdAt, likeCount, commentCou
   return (
     <Item.Group>
       <Item>
-        <Item.Image size='tiny' src='https://react.semantic-ui.com/images/avatar/large/molly.png' />
+        <Item.Image size='tiny' src={avatar}/>
 
         <Item.Content >
           <Item.Header>{username}</Item.Header>
@@ -30,7 +31,7 @@ function PostItem({ post: { id, username, body, createdAt, likeCount, commentCou
 
           <Item.Extra>
             <LikeButton user={user} post={{ id, likes, likeCount }} />
-            <Button labelPosition='right' as={Link} to={`/posts/id`} onClick={commentClick}>
+            <Button labelPosition='right' as={Link} to={`/posts/${id}`} onClick={commentClick}>
               <Button color='blue' basic>
                 <Icon name='comments' />
               </Button>

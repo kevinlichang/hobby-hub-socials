@@ -18,7 +18,8 @@ function Login(props) {
   const [loginUser, { loading }] = useMutation(LOGIN_USER, {
     update(_, result) {
       context.login(result.data.login);
-      props.history.push('/');
+      // props.history.push('/');
+      props.history.goBack();
     },
     onError(err) {
       setErrors(err.graphQLErrors[0].extensions.errors);

@@ -43,7 +43,7 @@ gqlSchema = gql`
     register(registerInput: RegisterInput): User!
     login(username: String!, password: String!): User!
     createPost(body: String!): Post!
-    createComment(postId: String!, body: String!): Comment!
+    createComment(postId: ID!, body: String!): Post!
     deletePost(postId: ID!): String!
     deleteComment(postId: ID!, commentId: ID!): Post!
     like(postId: ID!): Post!

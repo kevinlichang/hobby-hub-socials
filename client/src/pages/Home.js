@@ -42,7 +42,7 @@ function Home() {
 
 
         </Grid.Column>
-        <Grid.Column width={11}>
+        <Grid.Column width={10}>
           <Grid divided={'vertically'}>
             {loading ? (
               <Grid.Row centered >
