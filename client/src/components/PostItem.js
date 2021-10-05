@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Item, Button, Icon, Label, Container } from 'semantic-ui-react'
+import { Item, Button, Icon, Label, Container, Popup } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 
@@ -11,14 +11,10 @@ import avatar from '../images/avatar.jpg'
 function PostItem({ post: { id, username, body, createdAt, likeCount, commentCount, likes } }) {
   const { user } = useContext(AuthContext);
 
-  function commentClick() {
-    console.log('Comment clicked');
-  }
-
   return (
     <Item.Group>
       <Item>
-        <Item.Image size='tiny' src={avatar}/>
+        <Item.Image size='tiny' src={avatar} />
 
         <Item.Content >
           <Item.Header>{username}</Item.Header>
@@ -31,14 +27,20 @@ function PostItem({ post: { id, username, body, createdAt, likeCount, commentCou
 
           <Item.Extra>
             <LikeButton user={user} post={{ id, likes, likeCount }} />
-            <Button labelPosition='right' as={Link} to={`/posts/${id}`} onClick={commentClick}>
-              <Button color='blue' basic>
-                <Icon name='comments' />
-              </Button>
-              <Label basic color='blue' pointing='left'>
-                {commentCount}
-              </Label>
-            </Button>
+            <Popup
+              content="View comments"
+              trigger={
+                <Button labelPosition='right' as={Link} to={`/posts/${id}`}>
+                  <Button color='blue' basic>
+                    <Icon name='comments' />
+                  </Button>
+                  <Label basic color='blue' pointing='left'>
+                    {commentCount}
+                  </Label>
+                </Button>
+              }
+            />
+
             {user && user.username === username && <DeleteButton postId={id} />}
           </Item.Extra>
         </Item.Content>
