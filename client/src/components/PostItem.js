@@ -14,13 +14,18 @@ function PostItem({ post: { id, username, body, createdAt, likeCount, commentCou
   return (
     <Item.Group>
       <Item>
-        <Item.Image size='tiny' src={avatar} />
+        
+        <Item.Image src={avatar} size="tiny"/>
+        
 
         <Item.Content >
           <Item.Header>{username}</Item.Header>
           <Container as={Link} to={`/posts/${id}`}>
             <Item.Meta className="block">{moment(createdAt).fromNow(true)}</Item.Meta>
             <Item.Description className="block post-body">
+              {/* TODO: implement HOBBY TYPE */}
+              {/* <h3>Wood</h3>
+              <br></br> */}
               {body}
             </Item.Description>
           </Container>
@@ -29,6 +34,8 @@ function PostItem({ post: { id, username, body, createdAt, likeCount, commentCou
             <LikeButton user={user} post={{ id, likes, likeCount }} />
             <Popup
               content="View comments"
+              inverted
+              position='bottom left'
               trigger={
                 <Button labelPosition='right' as={Link} to={`/posts/${id}`}>
                   <Button color='blue' basic>
