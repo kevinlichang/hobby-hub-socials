@@ -1,18 +1,15 @@
-# Hobby Hub
-### Social media web app for users to share hobbies and interests.
+# Hobby Hub Social
 
-
-<br>
 
 ## URL
-[TBD.website]()
+[https://hobbyhubsocial.netlify.app/](https://hobbyhubsocial.netlify.app/)
 
 <br>
 
 
 <!-- ABOUT THE PROJECT -->
-## Introduction
-This ia a social media web app where people can browse or create posts about hobbies and interests. Registered can like and comment on each post as well. The goal is to be a fun and inspiring space for hobbyists everywhere!
+## Intro
+A social media web app where people can browse or create posts about hobbies and interests. Registered users can like and comment on each post as well. The goal is to be a fun and inspiring space for hobbyists everywhere!
 
 
 
