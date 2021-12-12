@@ -13,11 +13,9 @@ function PostItem({ post: { id, username, body, createdAt, subject, likeCount, c
 
   return (
     <Item.Group>
-      <Item>
-        
+      <Item>  
         <Item.Image src={avatar} size="tiny"/>
         
-
         <Item.Content >
           <Item.Header>{username}</Item.Header>
           <Container as={Link} to={`/posts/${id}`}>
