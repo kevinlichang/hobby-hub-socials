@@ -8,7 +8,7 @@ import DeleteButton from './DeleteButton'
 import LikeButton from './LikeButton'
 import avatar from '../images/avatar.jpg'
 
-function PostItem({ post: { id, username, body, createdAt, likeCount, commentCount, likes } }) {
+function PostItem({ post: { id, username, body, createdAt, subject, likeCount, commentCount, likes } }) {
   const { user } = useContext(AuthContext);
 
   return (
@@ -23,10 +23,8 @@ function PostItem({ post: { id, username, body, createdAt, likeCount, commentCou
           <Container as={Link} to={`/posts/${id}`}>
             <Item.Meta className="block">{moment(createdAt).fromNow(true)}</Item.Meta>
             <Item.Description className="block post-body">
-              {/* TODO: implement HOBBY TYPE */}
-              {/* <h3>Wood</h3>
-              <br></br> */}
-              {body}
+              <h3>{subject}</h3>
+              <p>{body}</p>
             </Item.Description>
           </Container>
 

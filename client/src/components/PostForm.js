@@ -7,7 +7,8 @@ import {CREATE_POST_MUTATION, FETCH_ALL_POSTS_QUERY} from '../util/graphql'
 
 function PostForm() {
   const { values, onChange, onSubmit } = useForm(createPostCallback, {
-    body: ''
+    subject: '',
+    body: '',
   });
 
   const [createPost, { error }] = useMutation(CREATE_POST_MUTATION, {
@@ -22,6 +23,7 @@ function PostForm() {
           getAllPosts: [result.data.createPost, ...data.getAllPosts]
         } 
       });
+      values.subject = '';
       values.body = '';
     },
     onError(err) {
@@ -39,7 +41,14 @@ function PostForm() {
         <h2>Create a new post:</h2>
         <Form.Field>
           <Form.Input
-            placeholder="Write something cool!"
+            placeholder='Subject (Art, Video Games, etc.)'
+            name='subject'
+            onChange={onChange}
+            value={values.subject}
+            error={error ? true : false}
+          />
+          <Form.TextArea
+            placeholder="Text"
             name="body"
             onChange={onChange}
             value={values.body}

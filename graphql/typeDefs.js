@@ -4,6 +4,7 @@ gqlSchema = gql`
   type Post{
     id: ID!
     body: String!
+    subject: String!
     createdAt: String!
     username: String!
     comments: [Comment]!
@@ -42,7 +43,7 @@ gqlSchema = gql`
   type Mutation{
     register(registerInput: RegisterInput): User!
     login(username: String!, password: String!): User!
-    createPost(body: String!): Post!
+    createPost(body: String!, subject: String!): Post!
     createComment(postId: ID!, body: String!): Post!
     deletePost(postId: ID!): String!
     deleteComment(postId: ID!, commentId: ID!): Post!

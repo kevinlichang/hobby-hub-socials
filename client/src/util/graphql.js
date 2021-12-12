@@ -6,6 +6,7 @@ export const FETCH_ALL_POSTS_QUERY = gql`
     getAllPosts {
       id
       body
+      subject
       createdAt
       username
       likeCount
@@ -28,6 +29,7 @@ export const FETCH_SINGLE_POST = gql`
     getPost(postId: $postId) {
       id
       body
+      subject
       createdAt
       username
       likeCount
@@ -86,10 +88,11 @@ export const LOGIN_USER = gql`
 
 // For postForm
 export const CREATE_POST_MUTATION = gql`
-  mutation createPost($body: String!) {
-    createPost(body: $body) {
+  mutation createPost($body: String!, $subject: String!) {
+    createPost(body: $body, subject: $subject) {
       id
       body
+      subject
       createdAt
       username
       likes {
@@ -129,6 +132,7 @@ export const CREATE_COMMENT_MUTATION = gql`
     createComment(postId: $postId, body: $body) {
       id
       body
+      subject
       createdAt
       username
       likeCount
