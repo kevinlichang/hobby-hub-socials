@@ -1,6 +1,16 @@
 const { gql } = require('apollo-server-express');
+const {
+  GraphQLUpload,
+  graphqlUploadExpress, // A Koa implementation is also exported.
+} = require('graphql-upload');
 
 gqlSchema = gql`
+  scalar Upload
+
+  type File {
+    id: ID!
+    url: String!
+  }
   type Post{
     id: ID!
     body: String!
@@ -48,6 +58,7 @@ gqlSchema = gql`
     deletePost(postId: ID!): String!
     deleteComment(postId: ID!, commentId: ID!): Post!
     like(postId: ID!): Post!
+    uploadFile(file: Upload!): File!
   }
 `;
 

@@ -31,8 +31,8 @@ postResolvers = {
       const user = authorizeUser(context);
       // console.log(user);
 
-      if (body.trim() === '') {
-        throw new Error('Post body cannot be empty');
+      if (subject.trim() === '') {
+        throw new Error('Subject cannot be empty');
       }
 
       const newPost = new Post({

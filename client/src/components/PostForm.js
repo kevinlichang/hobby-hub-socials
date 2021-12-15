@@ -41,14 +41,14 @@ function PostForm() {
         <h2>Create a new post:</h2>
         <Form.Field>
           <Form.Input
-            placeholder='Subject (Art, Video Games, etc.)'
+            placeholder='Subject'
             name='subject'
             onChange={onChange}
             value={values.subject}
             error={error ? true : false}
           />
           <Form.TextArea
-            placeholder="Text"
+            placeholder="Text (Optional)"
             name="body"
             onChange={onChange}
             value={values.body}
