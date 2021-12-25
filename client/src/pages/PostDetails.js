@@ -51,6 +51,7 @@ function PostDetails(props) {
     const {
       id,
       body,
+      subject,
       createdAt,
       username,
       comments,
@@ -73,7 +74,10 @@ function PostDetails(props) {
               <Card.Content>
                 <Card.Header>{username}</Card.Header>
                 <Card.Meta>{moment(createdAt).fromNow()}</Card.Meta>
-                <Card.Description>{body}</Card.Description>
+                <Card.Description>
+                  <h3>{subject}</h3>
+                  <p>{body}</p>
+                </Card.Description>
               </Card.Content>
               <hr />
               <Card.Content extra>

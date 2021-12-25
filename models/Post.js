@@ -4,6 +4,7 @@ const Comment = require('./Comment');
 
 const postSchema = new Schema({
   body: String,
+  subject: String,
   username: String,
   createdAt: String,
   comments: [

@@ -27,7 +27,7 @@ postResolvers = {
     }
   },
   Mutation: {
-    async createPost(_, { body }, context) {
+    async createPost(_, { body, subject }, context) {
       const user = authorizeUser(context);
       // console.log(user);
 
@@ -37,6 +37,7 @@ postResolvers = {
 
       const newPost = new Post({
         body,
+        subject,
         user: user.id,
         username: user.username,
         createdAt: new Date().toISOString()
