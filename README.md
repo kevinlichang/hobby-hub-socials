@@ -6,6 +6,9 @@
 
 <br>
 
+![Main Page](/screenshots/01.png)
+
+<br>
 
 <!-- ABOUT THE PROJECT -->
 ## Intro
