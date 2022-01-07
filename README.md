@@ -6,15 +6,13 @@
 
 <br>
 
-![Main Page](/screenshots/01.png)
-
-<br>
-
 <!-- ABOUT THE PROJECT -->
 ## Intro
 A social media web app where people can browse or create posts about hobbies and interests. Registered users can like and comment on each post as well. The goal is to be a fun and inspiring space for hobbyists everywhere!
 
+<br>
 
+![Main Page](/screenshots/01.png)
 
 <br>
 
