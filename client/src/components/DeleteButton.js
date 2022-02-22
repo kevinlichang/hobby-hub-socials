@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import gql from 'graphql-tag'
 import { useMutation } from '@apollo/client'
 import { Button, Confirm, Popup } from 'semantic-ui-react';
-
 import { FETCH_ALL_POSTS_QUERY } from '../util/graphql'
 
 function DeleteButton({ postId, commentId, callback }) {

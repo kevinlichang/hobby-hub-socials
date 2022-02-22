@@ -29,7 +29,6 @@ postResolvers = {
   Mutation: {
     async createPost(_, { body, subject }, context) {
       const user = authorizeUser(context);
-      // console.log(user);
 
       if (body.trim() === '') {
         throw new Error('Post body cannot be empty');
@@ -49,7 +48,6 @@ postResolvers = {
     },
     async deletePost(_, { postId }, context) {
       const user = authorizeUser(context);
-      // console.log(user);
 
       try {
         const postToDelete = await Post.findById(postId);

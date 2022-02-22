@@ -74,7 +74,6 @@ module.exports = {
           }
         })
       }
-
       // Hash password and create an auth token
       password = await bcrypt.hash(password, 12);
 
