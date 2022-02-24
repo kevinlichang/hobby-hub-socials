@@ -33,7 +33,7 @@ To run this project locally, create a .env file containing the CLI variables:
   * DB_URI=\<your MongoDB database URI>
   * SECRET=\<a secret hash key for hashing passwords>
 
-Place the .env file in the main app directory. Then run
+Place the .env file in the main app directory. Then run the following:
 
 
 ```sh
