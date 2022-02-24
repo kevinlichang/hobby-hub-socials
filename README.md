@@ -13,6 +13,7 @@ A social media web app where people can browse or create posts about hobbies and
 <br>
 
 ![Main Page](/screenshots/01.png)
+![Post Details](/screenshots/02.png)
 
 <br>
 
